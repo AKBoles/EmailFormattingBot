@@ -16,10 +16,15 @@
   <div class="container">
     <h1>Email Formatter Widget</h1>
     <form method="POST">
-      <label for="raw_email">Paste your raw email text (including any extra LLM output):</label>
-      <textarea name="raw_email" id="raw_email" placeholder="Paste the raw email text here...">{{ raw_email }}</textarea>
+      <label for="raw_email">
+        Enter email text or instructions:
+      </label>
+      <textarea name="raw_email" id="raw_email" placeholder="For cleaning up, paste your email text including any extra LLM content. For composing, describe what the email should be...">{{ raw_email }}</textarea>
       
-      <button type="submit">Format Email</button>
+      <div style="margin-top: 1em;">
+        <button type="submit" name="action" value="cleanup">Clean Up Email</button>
+        <button type="submit" name="action" value="compose">Compose Email</button>
+      </div>
     </form>
     
     {% if formatted_email %}
