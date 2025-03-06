@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Email Formatter Widget</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 2em; }
+    .container { max-width: 800px; margin: auto; }
+    textarea { width: 100%; height: 200px; padding: 0.5em; }
+    label { font-weight: bold; margin-top: 1em; display: block; }
+    button { margin-top: 1em; padding: 0.5em 1em; font-size: 1em; }
+    .output { margin-top: 2em; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Email Formatter Widget</h1>
+    <form method="POST">
+      <label for="raw_email">Paste your raw email text (including any extra LLM output):</label>
+      <textarea name="raw_email" id="raw_email" placeholder="Paste the raw email text here...">{{ raw_email }}</textarea>
+      
+      <button type="submit">Format Email</button>
+    </form>
+    
+    {% if formatted_email %}
+    <div class="output">
+      <h2>Formatted Email:</h2>
+      <textarea readonly>{{ formatted_email }}</textarea>
+    </div>
+    {% endif %}
+  </div>
+</body>
+</html>
